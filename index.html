@@ -28,7 +28,7 @@
       <br><br>
       <h1 class="header center orange-text">Guess an E-mail</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Get auto-generated email addresses in few seconds</h5>
+        <h5 class="header col s12 light">Get auto-generated email addresses in a few seconds</h5>
       </div>
       <div class="row center">
       <form class="generator col s12">
@@ -38,22 +38,23 @@
                 <textarea id="results" class="materialize-textarea">
 
                 </textarea>
+                <div id="copy" class="btn-large waves-effect waves-light orange">Copy to clipboard</div>
               </div>
             </div>
             <div class="input-field col s12">
-              <input id="first_name" type="text" class="validate">
+              <input id="first_name" type="text" class="validate" required>
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s12">
-              <input id="second_name" type="text" class="validate">
+              <input id="second_name" type="text">
               <label for="second_name">Second Name</label>
             </div>
             <div class="input-field col s12">
-              <input id="last_name" type="text" class="validate">
+              <input id="last_name" type="text" class="validate" required>
               <label for="last_name">Last Name</label>
             </div>
             <div class="input-field col s12">
-              <input id="company" type="text" class="validate">
+              <input id="company" type="text" class="validate" required>
               <label for="company">Company Domain</label>
             </div>
              <input type="submit" id="generate" class="btn-large waves-effect waves-light orange" value="Generate"></input>

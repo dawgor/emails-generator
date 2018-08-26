@@ -12,6 +12,15 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+#copy {
+	opacity: 0;
+	visibility: hidden;
+	transition: 1s all ease-in-out;
+}
+#copy.active {
+	opacity: 1;
+	visibility: visible;
+}
 #generate {
 	color: white;
 }

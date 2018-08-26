@@ -3,7 +3,8 @@ function generateName(name, second_name, surname) {
 		name_first_two_letters,
 		second_name_first_letter,
 		surname_first_letter,
-		surname_first_two_letters;
+		surname_first_two_letters,
+		data;
 
 	name_first_letter = name.substring(0,1);
 	name_first_two_letters = name.substring(0,2);
@@ -11,7 +12,8 @@ function generateName(name, second_name, surname) {
 	surname_first_letter = surname.substring(0,1);
 	surname_first_two_letters = surname.substring(0,2);
 
-	return [
+	//Define data array that holds combinations
+	data = [
 		name + '.' + surname,
 		name + surname,
 		name,
@@ -27,15 +29,22 @@ function generateName(name, second_name, surname) {
 		surname + '.' + name,
 		name_first_two_letters + surname,
 		name_first_two_letters + '.' + surname,
-		surname + name_first_letter,
-		//second name combination starts here
-		name + '.' + second_name + '.' + surname,
-		name + second_name + surname,
-		name_first_letter + second_name_first_letter + surname_first_letter,
-		name + '.' + second_name + '-' + surname,
-		name + second_name,
-		name + '.' + second_name
+		surname + name_first_letter
 	]
+
+	//If second name exists add some new combinations to data array:
+	if (second_name) {
+		data.push(
+			name + '.' + second_name + '.' + surname,
+			name + second_name + surname,
+			name_first_letter + second_name_first_letter + surname_first_letter,
+			name + '.' + second_name + '-' + surname,
+			name + second_name,
+			name + '.' + second_name
+		)
+	}
+
+	return data;
 }
 
 function generateDomain(company) {
@@ -74,5 +83,13 @@ jQuery(document).ready(function($){
 
 		$('#results').val(results.join('\n'));
 		$('#results').css('display', 'block');
+		$('#copy').addClass('active');
+	});
+
+	$('#copy').click(function(){
+		var emails = document.getElementById("results");
+		emails.select();
+		document.execCommand("copy");
+		M.toast({html: "Copied!"})
 	});
 });
